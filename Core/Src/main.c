@@ -53,8 +53,8 @@ static uint64_t timestamp = 0;
 uint32_t CountOver = 0;
 uint32_t Counter_TIM2 = 4294967295;
 uint16_t ADCBuffer[300] = {0};
-uint16_t ADC_Average[3] = {0};
-uint16_t ADC_SumAPot[3] = {0};
+int ADC_Average[3] = {0};
+int ADC_SumAPot[3] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -479,9 +479,9 @@ void ADC_Averaged()
 
 	for (int i = 0; i < 100; i++)
 	{
-		ADC_SumAPot[0] = ADC_SumAPot[0] + (ADCBuffer[3*i]);
-		ADC_SumAPot[1] = ADC_SumAPot[1] + (ADCBuffer[1+(3*i)]);
-		ADC_SumAPot[2] = ADC_SumAPot[2] + (ADCBuffer[2+(3*i)]);
+		ADC_SumAPot[0] += ADCBuffer[3*i];
+		ADC_SumAPot[1] += ADCBuffer[1+(3*i)];
+		ADC_SumAPot[2] += ADCBuffer[2+(3*i)];
 	}
 
 	ADC_Average[0] = ADC_SumAPot[0]/100;

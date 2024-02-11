@@ -52,7 +52,7 @@ TIM_HandleTypeDef htim3;
 static uint64_t timestamp = 0;
 uint32_t CountOver = 0;
 uint32_t Counter_TIM2 = 4294967295;
-uint32_t ADCBuffer[3] = {0};
+uint16_t ADCBuffer[300] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -65,7 +65,7 @@ static void MX_ADC1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 void Micros();
-void ADC_Average(uint32_t _ADCBuffer[3]);
+//void ADC_Average(uint32_t _ADCBuffer[3]);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -371,7 +371,7 @@ static void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 56666;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 1;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)

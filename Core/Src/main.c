@@ -674,14 +674,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if(htim == &htim2)
-	{
-		CountOver++;
-	}
-}
-
 void Micros()
 {
 	timestamp = (CountOver * Counter_TIM2) + __HAL_TIM_GET_COUNTER(&htim2);
@@ -746,6 +738,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
 		if (main_Mode == 0) main_Mode = 1;
 		else if (main_Mode == 1) main_Mode = 0;
+	}
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if(htim == &htim2)
+	{
+		CountOver++;
 	}
 }
 /* USER CODE END 4 */

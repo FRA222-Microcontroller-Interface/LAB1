@@ -124,7 +124,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim2); //Timer 64 Bit
   HAL_TIM_Base_Start(&htim3); //Timer for DMA
-  HAL_TIM_Base_Start(&htim4); // Servo Out
+  HAL_TIM_Base_Start(&htim4); //Servo Out
   HAL_TIM_Base_Start(&htim5); //Tester Generator
   HAL_TIM_Base_Start(&htim8); //Input Capture Tester
   HAL_TIM_Base_Start_IT(&htim2);
